@@ -114,8 +114,30 @@ az network nic create \
     --ip-forwarding
 ```
 
+### Create the route table
+
+```bash
+az network route-table create \
+    --name ${AZURE_OPENBSD_RG}-Route-Table \
+    --resource-group ${AZURE_OPENBSD_RG} 
+```
+
 ## Add entries to the route table
 
+```bash
+az network route-table route create \
+    --name To-AWS \
+    --address-prefix 172.31.0.0/16 \
+    --next-hop-type VirtualAppliance \
+    --next-hop-ip-address 10.0.1.4 \
+    --resource-group ${AZURE_OPENBSD_RG}  \
+    --route-table-name ${AZURE_OPENBSD_RG}-Route-Table
+```
 
+To confirm the entries
+
+```bash 
+az network route-table show -n ${AZURE_OPENBSD_RG}-Route-Table -g ${AZURE_OPENBSD_RG}
+```
 
 Next: [Configuring AWS](03-configuring-aws.md)
