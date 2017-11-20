@@ -50,4 +50,35 @@ Once inside of the route table
 1. Select OpenBSDs internal interface. You can either search for the name of the interface (e.g.: eni-XXXX) or search for a tag (e.g.: internal_if)
 1. Click on **Save** 
 
+Your route table should look like resemble this one:
+
+![AWS Route table result](images/aws-add-route-result.png)
+
+## Allow packet forwarding
+
+### Go to EC2
+
+1. Click on the **Services** drop-down menu.
+1. and select **EC2** under the *Compute* section
+
+![AWS EC2](images/aws-select-ec2.png)
+
+### Disable source/destination check
+
+![AWS Disable Source/Destination Check](images/disable-ec2-nic-source-check.png)
+
+1. Click on the **Network Interfaces** 
+1. Select a network interface (e.g.: the external_if interface). Note that you _must_ do this for both interfaces.
+1. Click on **Change Source/Dest. Check** under the **Actions** button. 
+
+When the _Change Source/Dest. Check_ window appears:
+
+![AWS Change Source/Dest. Check](images/disable-ec2-nic-source-check-window.png)
+
+1. Select **Disabled** 
+1. Click save.
+
+Repeat this process for all interfaces that need to pass traffic.
+
+
 Next: [Setting up OpenBSD](04-setting-openbsd.md)
