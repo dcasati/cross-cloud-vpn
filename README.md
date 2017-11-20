@@ -8,7 +8,8 @@ This is a guide on how to securely connect two public clouds,AWS and Azure. The 
 
 ## Audience
 
-The target audience for this tutorial is someone planning to support a production Kubernetes cluster and wants to understand how everything fits together.
+The target audience for this tutorial is anyone looking for a solution on how to plumb together two cloud environments, such as Azure and AWS. This is a 
+step-by-step approach with many details on how things get connected together.
 
 ## Solution Details
 
