@@ -17,7 +17,9 @@ This guide will walk you through the process of connecting VMs running on AWS an
 
 * OpenBSD 6.1 amd64
 * Azure CLI 2.0
-* Different VNets and VPC CIDR networks. They must be different and non overlapping. See the [Before You Begin](sections/01-before-you-begin.md) for details on network planning.
+* Different VNets and VPC CIDR networks. They must be different and non overlapping. 
+
+See the [Before You Begin](sections/01-before-you-begin.md) for details on network planning.
    
 ## Sections
 
