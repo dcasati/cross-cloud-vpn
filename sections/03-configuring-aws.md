@@ -27,7 +27,7 @@
 
 #### Go to the VPC
 
-1. Click on the **Services** dropdown menu.
+1. Click on the **Services** drop-down menu.
 1. and select **VPC** under the *Networking & Content Delivery* section
 
 ![AWS VPC](images/aws-select-vpc.png)
