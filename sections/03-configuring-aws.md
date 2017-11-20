@@ -9,7 +9,7 @@
 1. Carve 2 subnets (e.g.: Private and VPN). Our VM will have a NIC in each one of these subnets.
 1. Create the OpenBSD VM with two NICs
     1. For each NIC **disable source/dest check**
-1. [Add the route to Azure (e.g.: 10.0.0.0/16)](#vnet-route)
+1. [Add the route to Azure (e.g.: 10.0.0.0/16)](#go-to-the-vpc)
 1. Allow traffic on the Security Groups (ports 500, 4500 UDP)
     1. For troubleshooting, also allow ICMP and SSH between the two networks.
 1. Attach an Elastic IP to the OpenBSD interface on the VPN subnet.
@@ -23,7 +23,7 @@
 |0.0.0.0/0 |  Internet Gateway |    
 |10.0.0.0/0 | xfn1 / OpenBSD | Route to Azure's VNET pointing to OpenBSD's internal NIC interface
 
-### <a id="vnet-route></a>Add a route to Azure's VNet
+### Add a route to Azure's VNet
 
 #### Go to the VPC
 
