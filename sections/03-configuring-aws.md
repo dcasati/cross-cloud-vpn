@@ -45,7 +45,7 @@ In this windows you can select all of the details of the subnets such as the:
 1. Availability Zone and
 1. the CIDR 
 
-Repeat this process for the subnets for the following subnets and CIDRs:
+Repeat this process for the subnets for the following subnets and CIDRs.
 
 | Name | CIDR | Nb of Hosts
 |- | - | -

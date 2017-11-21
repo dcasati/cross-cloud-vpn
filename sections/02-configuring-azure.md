@@ -42,6 +42,13 @@ az group create --name ${AZURE_OPENBSD_RG} --location westus2
 
 ### Create the VNet and the first subnet (VPN)
 
+Recall our subnet planning from the [Before You Begin](01-before-you-begin.md) section:
+
+|Name | CIDR | Nb of Hosts
+| - | - | - 
+|VPN | 10.0.0.128/25 | 126
+|Private | 10.0.0.0/19 | 8190
+
 ```bash 
 az network vnet create \
     --resource-group ${AZURE_OPENBSD_RG} \
@@ -57,7 +64,7 @@ az network vnet subnet create \
     --resource-group ${AZURE_OPENBSD_RG} \
     --vnet-name ${AZURE_OPENBSD_RG}-VNet \
     --name ${AZURE_OPENBSD_RG}-private-subnet \
-    --address-prefix 10.0.1.0/24
+    --address-prefix 10.0.0.0/19
 ```
 
 ### Create the Network Security Groups (NSG)
