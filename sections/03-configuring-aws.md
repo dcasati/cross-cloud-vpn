@@ -1,7 +1,6 @@
-# Configuring AWS 
+# Configuring AWS
 
 ![AWS topology](images/topology-aws.png)
-
 
 ## Step-by-step overview
 
@@ -13,7 +12,11 @@
 1. [Allow traffic on the Security Groups (ports 500, 4500 UDP)](#allow-traffic)
     1. For troubleshooting, also allow ICMP and SSH between the two networks.
 1. [Attach an Elastic IP to the OpenBSD interface on the VPN subnet.](#attach-eip)
-1. [Configure OpenIKED](04-setting-openbsd.md).
+1. [Configure OpenIKED.](04-setting-openbsd.md)
+
+References: 
+* [Example: Create an IPv4 VPC and Subnets Using the AWS CLI 
+](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-subnets-commands-example.html)
 
 ## Create the VPC
 

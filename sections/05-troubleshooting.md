@@ -39,4 +39,4 @@ OpenBSD - applicable to both, AWS and Azure
 - Can you see any security associations and flows? Try `ipsecctl -sa`
 - Do you have any rule on `pf.conf` blocking your traffic ? Check the rules with `pfctl -sr`
 
-Next: [Next](06-next.md)
+Next: [What's Next ?](06-next.md)
