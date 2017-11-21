@@ -7,7 +7,7 @@ One of the most common issues is that you don't have traffic between the two clo
 VPC
 - Did you add the route to Azure in the VPC route table?
 - Is your Security Group allowing traffic on:
-    - For IPSec: UDP 500, UDP 4500
+    - For IPsec: UDP 500, UDP 4500
     - For others: TCP 22 (ssh), ICMP
 - Do you have any rules in your VPC ACLs could be blocking traffic ?
 

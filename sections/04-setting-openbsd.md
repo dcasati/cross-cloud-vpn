@@ -54,7 +54,7 @@ and finally, start the `iked` daemon
 # rcctl start iked
 ```
 
-You can check if IPSec is working by running the `ipsecctl` util:
+You can check if IPsec is working by running the `ipsecctl` util:
 
 ```bash
 # ipsecctl –sa
