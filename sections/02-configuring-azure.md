@@ -22,7 +22,7 @@ To send traffic from our Azure VNet back to the AWS VPC, we will setup the follo
 1. Carve 3 subnets (k8sDataTier, Management, VPN)
 1. Create the OpenBSD VM with two NICs (via Azure CLI)
     1. For each NIC enable IP forwarding
-1. Add the route to Azure (e.g.: 192.168.0.0/16) on the UDR
+1. Add the route to Azure (e.g.: 172.31.0.0/16) on the UDR
 1. Allow traffic on the Security Groups (ports 500, 4500 UDP)
 1. Attach a Public IP to the OpenBSD interface on the VPN subnet.
 1. Configure OpenIKED.
