@@ -41,9 +41,17 @@ This will prompt you to sign in using a web browser to https://aka.ms/devicelogi
 
 ## Planning the networks
 
+One of the requirements for the exercises in this tutorial is that the networks on both clouds cannot be the same or overlap. For that reason,
+here's a proposed a layout:
+
 | Where | Name | CIDR | Nb of Hosts
 |- | - | - | -
 | AWS | VPN | 172.31.255.128/25 | 126
 | | Private | 172.31.0.0/19 | 8190 
-| Azure | VPN | 10.0
+| Azure | VPN | 10.0.0.128/25 | 126
+| | Private | 10.0.0.0/19 | 8190
+
+You can expand the examples here by carving out more subnets or changing the CIDRs. Always keep in mind that the rules here need to be respect: no overlap and
+not the same address space in the clouds!
+
 Next: [Configuring Azure](02-configuring-azure.md)
