@@ -13,7 +13,7 @@ To send traffic from our Azure VNet back to the AWS VPC, we will setup the follo
 
 |Destination | Target | Notes   
 |---|---|---
-|192.168.0.0/16 | 10.0.1.4 | OpenBSD's internal NIC IP address
+|172.31.0.0/16 | 10.0.1.4 | OpenBSD's private NIC IP address
 
 ## Step-by-step overview
 
@@ -40,14 +40,14 @@ export AZURE_OPENBSD_RG=myOpenBSD_RG
 az group create --name ${AZURE_OPENBSD_RG} --location westus2
 ```
 
-### Create the VNet and the first subnet (External)
+### Create the VNet and the first subnet (VPN)
 
 ```bash 
 az network vnet create \
     --resource-group ${AZURE_OPENBSD_RG} \
     --name ${AZURE_OPENBSD_RG}-VNet \
     --address-prefix 10.0.0.0/16 \
-    --subnet-name ${AZURE_OPENBSD_RG}-external-subnet \
+    --subnet-name ${AZURE_OPENBSD_RG}-VPN-subnet \
     --subnet-prefix 10.0.0.128/25
 ```
 
@@ -56,32 +56,32 @@ az network vnet create \
 az network vnet subnet create \
     --resource-group ${AZURE_OPENBSD_RG} \
     --vnet-name ${AZURE_OPENBSD_RG}-VNet \
-    --name ${AZURE_OPENBSD_RG}-internal-subnet \
+    --name ${AZURE_OPENBSD_RG}-private-subnet \
     --address-prefix 10.0.1.0/24
 ```
 
 ### Create the Network Security Groups (NSG)
 
-Create the external NSG 
+Create the VPN NSG 
 ```bash 
 az network nsg create \
     --resource-group ${AZURE_OPENBSD_RG} \
-    --name ${AZURE_OPENBSD_RG}-externalNSG
+    --name ${AZURE_OPENBSD_RG}-VpnNSG
 ```
 
-Create the internal NSG
+Create the private NSG
 ```bash
 az network nsg create \
     --resource-group ${AZURE_OPENBSD_RG} \
-    --name ${AZURE_OPENBSD_RG}-internalNSG
+    --name ${AZURE_OPENBSD_RG}-privateNSG
 ```
 
-### Add a rule to allow SSH to the external NSG
+### Add a rule to allow SSH to the VPN NSG
 
 ```bash
 az network nsg rule create \
     --name allow-ssh \
-    --nsg-name ${AZURE_OPENBSD_RG}-externalNSG \
+    --nsg-name ${AZURE_OPENBSD_RG}-VpnNSG \
     --resource-group ${AZURE_OPENBSD_RG} \
     --priority 100 \
     --protocol Tcp \
@@ -90,27 +90,27 @@ az network nsg rule create \
 
 ### Create two NICs
 
-Create the first NIC for the external subnet:
+Create the first NIC for the VPN subnet:
 
 ```bash
 az network nic create \
     --resource-group ${AZURE_OPENBSD_RG} \
-    --name externalNIC \
+    --name VpnNIC \
     --vnet-name ${AZURE_OPENBSD_RG}-VNet \
-    --subnet ${AZURE_OPENBSD_RG}-external-subnet \
-    --network-security-group ${AZURE_OPENBSD_RG}-externalNSG \
+    --subnet ${AZURE_OPENBSD_RG}-VPN-subnet \
+    --network-security-group ${AZURE_OPENBSD_RG}-VpnNSG \
     --ip-forwarding
 ```
 
-Create the second NIC for the internal subnet:
+Create the second NIC for the private subnet:
 
 ```bash
 az network nic create \
     --resource-group ${AZURE_OPENBSD_RG} \
-    --name internalNIC \
+    --name privateNIC \
     --vnet-name ${AZURE_OPENBSD_RG}-VNet \
-    --subnet ${AZURE_OPENBSD_RG}-internal-subnet \
-    --network-security-group ${AZURE_OPENBSD_RG}-internalNSG \
+    --subnet ${AZURE_OPENBSD_RG}-private-subnet \
+    --network-security-group ${AZURE_OPENBSD_RG}-privateNSG \
     --ip-forwarding
 ```
 
