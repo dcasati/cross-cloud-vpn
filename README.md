@@ -1,6 +1,12 @@
 # Cross Cloud VPN: Site-to-Site IKEv2 based on OpenBSD
 
-This is a guide on how to securely connect two public clouds,AWS and Azure. The solution entails the use of an IPsec IKEv2 VPN running on OpenBSD.  
+This is a guide on how to securely connect two public clouds,AWS and Azure. The solution entails the use of an IPsec IKEv2 VPN running on OpenBSD.
+
+References:
+
+* The [OpenBSD](https://www.openbsd.org/) project
+* Amazon Web Services ([AWS](https://aws.amazon.com/))
+* Microsoft Azure ([Azure](https://azure.microsoft.com/))
 
 # Design Overview
 ![End to End topology](sections/images/topology.png)
