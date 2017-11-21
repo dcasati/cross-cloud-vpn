@@ -9,8 +9,8 @@ create your Azure account for [free](https://azure.microsoft.com/en-us/free/)
 * OpenBSD 6.1 available as an image on AWS and Azure. If you don't have this,
 you can follow the these instructions:
     - For Azure, the instructions are covered
-    [here](https://github.com/dcasati/openbsd-on-azure).  - For AWS check
-    [this one](https://github.com/ajacoutot/aws-openbsd).
+    [here](https://github.com/dcasati/openbsd-on-azure).
+    - For AWS check [this one](https://github.com/ajacoutot/aws-openbsd).
 
 * Azure CLI 2.0 (more instructions below)
 
