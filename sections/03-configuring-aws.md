@@ -31,6 +31,27 @@ References:
 
 ## Carve the subnets
 
+![AWS navigate to the subnets](images/vpc-subnets-create.png)
+
+1. Click on **Subnets** under the **Virtual Private Cloud** section on the left-side navigation bar.
+1. Click on the **Create Subnets** button
+
+![AWS Create the subnets](images/aws-create-subnet.png)
+
+In this windows you can select all of the details of the subnets such as the:
+
+1. name of the subnet
+1. VPC to create the subnet
+1. Availability Zone and
+1. the CIDR 
+
+Repeat this process for the subnets for the following subnets and CIDRs:
+
+| Name | CIDR | Nb of Hosts
+|- | - | -
+| VPN | 172.31.255.128/25 | 126
+| Private | 172.31.0.0/19 | 8190
+
 ## Create the OpenBSD VM
 
 ## Allow packet forwarding
@@ -63,6 +84,8 @@ Repeat this process for all interfaces that need to pass traffic.
 ## Allow Traffic
 
 ## Attach EIP
+
+
 
 ## Route Table Overview
 

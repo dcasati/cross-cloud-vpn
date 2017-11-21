@@ -39,4 +39,11 @@ az login
 
 This will prompt you to sign in using a web browser to https://aka.ms/devicelogin and to enter the displayed code. This single step is needed in order to allow `az` to talk back to Azure.
 
+## Planning the networks
+
+| Where | Name | CIDR | Nb of Hosts
+|- | - | - | -
+| AWS | VPN | 172.31.255.128/25 | 126
+| | Private | 172.31.0.0/19 | 8190 
+| Azure | VPN | 10.0
 Next: [Configuring Azure](02-configuring-azure.md)
