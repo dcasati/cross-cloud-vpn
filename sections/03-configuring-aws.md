@@ -19,6 +19,8 @@
 
 #### Go to the VPC
 
+![AWS EC2](images/aws-select-ec2.png)
+
 1. Click on the **Services** drop-down menu.
 1. and select **VPC** under the *Networking & Content Delivery* section
 
@@ -35,7 +37,7 @@
 1. Click on the **Services** drop-down menu.
 1. and select **EC2** under the *Compute* section
 
-![AWS EC2](images/aws-select-ec2.png)
+
 
 ### Disable source/destination check
 
