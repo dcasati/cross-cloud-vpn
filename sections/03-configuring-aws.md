@@ -179,7 +179,13 @@ Back to the main Elastic IPs screen, right click on your newly allocated address
 
 ![AWS Allocate EIP associate](images/aws-eip-associate-dialog.png)
 
-XXX
+1. Right click on the new EIP and then click on **Associate address**
+
+![AWS EIP to NIC association](images/aws-eip-to-nic.png)
+
+1. Under _Resource type_ select **Network interface**
+1. Click on the **Network interface** drop-down menu and select the **ext_if** interface
+1. Click on **Associate**
 
 ## Route Table Overview
 
