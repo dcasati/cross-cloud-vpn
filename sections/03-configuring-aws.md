@@ -20,7 +20,7 @@ References:
 
 ## Create the VPC
 
-#### Go to the VPC section
+### Go to the VPC section
 
 ![AWS VPC](images/aws-select-vpc.png)
 
@@ -33,7 +33,33 @@ References:
 1. Select a CIDR block. In our example: 172.31.0.0/16
 1. Click on **Yes, Create**
 
-## Carve the subnets
+### Attach an Internet Gateway
+
+By default, a newly created VPC will not route traffic to the Internet. To allow the access to the Internet, we will create a new Internet Gateway and attach it to the VPC.
+
+![AWS IG create](images/aws-ig-create.png)
+
+1. Click on **Internet Gateways**.
+1. Click on the **Create Internet Gateway** button.
+
+![AWS IG create dialog](images/aws-create-ig-dialog.png)
+
+1. Give the gateway a name (e.g.: internet-gw)
+1. Click on **Yes, Create**
+
+Select the new Internet Gateway and click on **Attach to VPC**
+![AWS attach IG to VPC](images/aws-attach-ig-to-vpc.png)
+
+1. Click on **Attack to VPC**
+1. Select the VPC
+1. Click on **Yes, Attach**
+
+The final result should look like this.
+
+![AWS attach IG to VPC](images/aws-ig-status.png)
+
+
+### Carve the subnets
 
 ![AWS navigate to the subnets](images/vpc-subnets-create.png)
 
