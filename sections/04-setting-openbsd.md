@@ -2,6 +2,24 @@
 
 Here's the setup for OpenBSD on Azure and AWS.
 
+## Enable the internal interface
+
+| `/etc/hostname.hvn1` on Azure
+|-
+```bash
+echo dhcp > /etc/hostname.hvn1
+echo description int_if >> /etc/hostname.hvn1
+sh -x /etc/netstart
+```
+
+| `/etc/hostname.xfn1` on AWS
+|-
+```bash
+echo dhcp > /etc/hostname.xfn1
+echo description int_if >> /etc/hostname.xfn1
+sh -x /etc/netstart
+```
+
 ## Configure iked
 
 ### Create the ike.conf file
