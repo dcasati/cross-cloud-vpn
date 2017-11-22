@@ -34,7 +34,7 @@ See the [Before You Begin](sections/01-before-you-begin.md) for details on netwo
 - [Design Overview](sections/design.md)
 - [Configuring Azure](sections/02-configuring-azure.md)
 - [Configuring AWS](sections/03-configuring-aws.md)
-- [Testing](sections/04-plumbing.md)
+- [Setting OpenBSD](sections/04-setting-openbsd.md)
 - [Troubleshooting](sections/05-troubleshooting.md)
 - [What's next ?](sections/06-next.md)
 
