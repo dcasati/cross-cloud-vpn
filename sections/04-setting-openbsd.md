@@ -34,7 +34,7 @@ change the file permission so it's not readable by everyone
 | `/etc/iked.conf` on AWS
 |-
 ```bash
-cat > /tmp/iked.conf << \EOF
+cat > /etc/iked.conf << \EOF
 local_gw = ${AWS_PUBLIC_IP}
 remote_gw = ${AZURE_PUBLIC_IP}
 local_net = "10.0.0.0/16"
@@ -47,8 +47,6 @@ ikev2 $state ipcomp esp \
         psk "1BigSecret"
 
 EOF
-
-cat /tmp/iked.conf
 ```
 change the file permission so it's not readable by everyone
 
