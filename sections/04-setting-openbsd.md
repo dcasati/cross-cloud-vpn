@@ -11,7 +11,7 @@ Here's the setup for OpenBSD on Azure and AWS.
 | `/etc/iked.conf` on Azure
 |-
 ```bash
-cat > /etc/iked.conf << EOF
+cat > /etc/iked.conf << \EOF
 local_gw = ${AZURE_PUBLIC_IP}
 remote_gw = ${AWS_PUBLIC_IP}
 local_net = "172.31.0.0/16"
@@ -34,7 +34,7 @@ change the file permission so it's not readable by everyone
 | `/etc/iked.conf` on AWS
 |-
 ```bash
-cat > /etc/iked.conf << EOF
+cat > /tmp/iked.conf << \EOF
 local_gw = ${AWS_PUBLIC_IP}
 remote_gw = ${AZURE_PUBLIC_IP}
 local_net = "10.0.0.0/16"
@@ -45,7 +45,10 @@ ikev2 $state ipcomp esp \
         from $local_gw to $remote_gw \
         from $local_net to $remote_net peer $remote_gw  \
         psk "1BigSecret"
+
 EOF
+
+cat /tmp/iked.conf
 ```
 change the file permission so it's not readable by everyone
 
