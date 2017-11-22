@@ -25,6 +25,12 @@ ikev2 $state ipcomp esp \
 EOF
 ```
 
+change the file permission so it's not readable by everyone
+
+```bash
+# chmod 0600 /etc/iked.conf
+```
+
 | `/etc/iked.conf` on AWS
 |-
 ```bash
@@ -40,6 +46,11 @@ ikev2 $state ipcomp esp \
         from $local_net to $remote_net peer $remote_gw  \
         psk "1BigSecret"
 EOF
+```
+change the file permission so it's not readable by everyone
+
+```bash
+# chmod 0600 /etc/iked.conf
 ```
 
 Next, enable `iked` to make sure it starts when the system reboots.
@@ -99,6 +110,12 @@ pass in on enc0 proto ipencap from any to any keep state (if-bound)
 EOF
 ```
 
+Change the file permission so it's not readable by everyone
+
+```bash
+# chmod 0600 /etc/pf.conf
+```
+
 | `/etc/pf.conf` on AWS
 |-
 ```bash
@@ -118,6 +135,11 @@ set skip on { lo, enc0 }
 
 pass in on enc0 proto ipencap from any to any keep state (if-bound)
 EOF
+```
+and again, change the file permission so it's not readable by everyone
+
+```bash
+# chmod 0600 /etc/pf.conf
 ```
 
 Next: [Troubleshooting](05-troubleshooting.md)
