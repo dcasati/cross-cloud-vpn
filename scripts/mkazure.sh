@@ -1,5 +1,8 @@
 #!/bin/ksh
 
+echo 'http://ftp.openbsd.org/pub/OpenBSD' > /etc/installurl
+pkg_add curl-7.53.1.tgz
+
 REMOTE_PUBLIC_IP=$1
 REMOTE_NET=$2
 
