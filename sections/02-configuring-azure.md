@@ -58,7 +58,7 @@ az network vnet create \
     --subnet-prefix 10.0.0.128/25
 ```
 
-### Create the second VNet
+### Create the private subnet
 ```bash 
 az network vnet subnet create \
     --resource-group ${AZURE_OPENBSD_RG} \
