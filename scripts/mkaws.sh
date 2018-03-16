@@ -39,7 +39,7 @@ ext_if="xnf0"
 
 local_gw = ${LOCAL_PUBLIC_IP}
 remote_gw = ${REMOTE_PUBLIC_IP}
-local_net = "${LOCAL_NET}/${LOCAL_PREFIX}"
+local_net = "${LOCAL_NET}"
 remote_net = "${REMOTE_NET}"
 
 block in on \$ext_if
