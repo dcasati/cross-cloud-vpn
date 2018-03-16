@@ -11,7 +11,7 @@ LOCAL_PUBLIC_IP=$(curl "http://169.254.169.254/latest/meta-data/public-ipv4/")
 REMOTE_PUBLIC_IP=$1
 
 INTERFACE=$(curl "http://169.254.169.254/latest/meta-data/network/interfaces/macs/")
-LOCAL_NET=$(curl "http://169.254.169.254/latest/meta-data/interfaces/macs/${INTERFACE}/subnet-ipv4-cidr-block")
+LOCAL_NET=$(curl "http://169.254.169.254/latest/meta-data/network/interfaces/macs/${INTERFACE}/subnet-ipv4-cidr-block")
 
 cat > /etc/iked.conf << EOF
 local_gw = "${LOCAL_PUBLIC_IP}"
