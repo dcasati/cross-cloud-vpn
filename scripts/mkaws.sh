@@ -6,17 +6,17 @@ pkg_add curl-7.53.1.tgz
 REMOTE_PUBLIC_IP=$1
 REMOTE_NET=$2
 
-LOCAL_PUBLIC_IP=$(curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text")
+LOCAL_PUBLIC_IP=$(curl "http://169.254.169.254/latest/meta-data/public-ipv4/")
 
 REMOTE_PUBLIC_IP=$1
 
-LOCAL_NET=$(curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/subnet/0/address?api-version=2017-08-01&format=text")
-LOCAL_PREFIX=$(curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/subnet/0/prefix?api-version=2017-08-01&format=text")
+INTERFACE=$(curl --silent http://169.254.169.254/latest/meta-data/network/interfaces/macs/)
+LOCAL_NET=$(curl "http://169.254.169.254/latest/meta-data/interfaces/macs/${INTERFACE}/subnet-ipv4-cidr-block)
 
 cat > /etc/iked.conf << EOF
 local_gw = "${LOCAL_PUBLIC_IP}"
 remote_gw = "${REMOTE_PUBLIC_IP}"
-local_net = "${LOCAL_NET}/${LOCAL_PREFIX}"
+local_net = "${LOCAL_NET}"
 remote_net = "${REMOTE_NET}"
 state = "active"
 
