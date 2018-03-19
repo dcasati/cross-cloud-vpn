@@ -18,12 +18,20 @@ local_gw = "${LOCAL_PUBLIC_IP}"
 remote_gw = "${REMOTE_PUBLIC_IP}"
 local_net = "${LOCAL_NET}"
 remote_net = "${REMOTE_NET}"
+kops_net = "100.64.0.0/10"
+
 state = "active"
 
 ikev2 \$state ipcomp esp \\
         from \$local_gw to \$remote_gw \\
         from \$local_net to \$remote_net peer \$remote_gw  \\
         psk "1BigSecret"
+
+ikev2 \$state ipcomp esp \\
+        from \$local_gw to \$remote_gw \\
+        from \$kops_net to \$remote_net peer \$remote_gw  \\
+        psk "1BigSecret"
+
 EOF
 
 chmod 0600 /etc/iked.conf
@@ -35,7 +43,7 @@ echo net.inet.ip.forwarding=1 >> /etc/sysctl.conf
 
 cat > /etc/pf.conf << EOF
 ext_if="xnf0"
-#int_if="xnf1"
+int_if="xnf1"
 
 local_gw = ${LOCAL_PUBLIC_IP}
 remote_gw = ${REMOTE_PUBLIC_IP}
